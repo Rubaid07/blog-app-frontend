@@ -1,6 +1,7 @@
 import { blogService } from "@/services/blog.service";
 import { BlogPost } from "@/types";
 import { Calendar, Eye, MessageSquare, Tag, ArrowLeft } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export async function generateStaticParams() {
@@ -73,13 +74,13 @@ export default async function BlogPage({
       {/* Hero Media */}
       <div className="my-12">
         {blog.thumbnail ? (
-          <img
+          <Image
             src={blog.thumbnail}
             alt={blog.title}
             className="w-full h-auto rounded-lg grayscale hover:grayscale-0 transition-all duration-500 border border-zinc-200 dark:border-zinc-800"
           />
         ) : (
-          <div className="w-full aspect-[21/9] border-2 border-dashed border-zinc-200 dark:border-zinc-800 rounded-lg flex flex-col items-center justify-center opacity-30">
+          <div className="w-full aspect-21/9 border-2 border-dashed border-zinc-200 dark:border-zinc-800 rounded-lg flex flex-col items-center justify-center opacity-30">
             <Tag className="w-8 h-8 mb-2" />
             <p className="text-xs uppercase tracking-widest font-bold">
               No Image Provided
@@ -107,7 +108,7 @@ export default async function BlogPage({
                 <p className="text-[10px] uppercase tracking-widest opacity-50 font-bold">
                   Author Token
                 </p>
-                <p className="text-sm font-mono truncate max-w-[150px]">
+                <p className="text-sm font-mono truncate max-w-37.5">
                   {blog.authorId}
                 </p>
               </div>
